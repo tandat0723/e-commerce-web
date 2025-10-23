@@ -1,4 +1,4 @@
-##A simple eCommerce website
+## A simple eCommerce website
 
 **Next.js eCommerce frontend** project.  
 It provides a modern, fast and customizable shopping UI.  
