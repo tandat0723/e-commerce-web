@@ -1,4 +1,4 @@
-#A simple eCommerce website
+##A simple eCommerce website
 
 **Next.js eCommerce frontend** project.  
 It provides a modern, fast and customizable shopping UI.  
@@ -30,8 +30,6 @@ We welcome all kinds of contributions! You can:
 - Introduce accessibility improvements
 - Add filtering/search features
 - Improve documentation
-
-Check out [CONTRIBUTING.md](./CONTRIBUTING.md) for guidelines.
 
 ---
 
