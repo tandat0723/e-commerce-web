@@ -3,7 +3,7 @@ import connectDB from "./db";
 import User from "@/models/User";
 
 // Create a client to send and receive events
-export const inngest = new Inngest({ id: "ecomerce-web" });
+export const inngest = new Inngest({ name: "Ecommerce App" });
 
 //Inngest function to save user data to a database
 export const syncUserCreation = inngest.createFunction(
@@ -56,7 +56,7 @@ export const syncUserDeletion = inngest.createFunction(
         event: 'clerk/user.deleted'
     },
     async ({ event }) => {
-        const id = event.data
+        const { id } = event.data
         await connectDB()
         await User.findByIdAndDelete(id)
     }
