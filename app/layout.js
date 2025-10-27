@@ -7,8 +7,8 @@ import { ClerkProvider } from "@clerk/nextjs";
 const outfit = Outfit({ subsets: ['latin'], weight: ["300", "400", "500"] })
 
 export const metadata = {
-  title: "TTDShop - Điện thoại, laptop, tablet, phụ kiện chính hãng",
-  description: "E-Commerce with Next.js ",
+  title: "TTDShop - Smartphone, laptop, tablet, genuine accessories",
+  description: "E-Commerce with Next.js",
 };
 
 export default function RootLayout({ children }) {
