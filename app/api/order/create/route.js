@@ -26,13 +26,13 @@ export async function POST(request) {
                 address,
                 items,
                 amount: amount + Math.floor(amount * 0.02),
-                date: Date.now()
+                date: Date.now(),
             }
         })
 
         //clear cart
         const user = await User.findById(userId)
-        User.cartItems = {}
+        user.cartItems = {}
         await user.save()
 
         return NextResponse.json({ success: true, message: 'Đơn hàng đã đặt' })
