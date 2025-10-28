@@ -47,10 +47,10 @@ const ProductList = () => {
           <table className=" table-fixed w-full overflow-hidden">
             <thead className="text-gray-900 text-sm text-left">
               <tr>
-                <th className="w-2/3 md:w-2/5 px-4 py-3 font-medium truncate">Product</th>
-                <th className="px-4 py-3 font-medium truncate max-sm:hidden">Category</th>
+                <th className="w-2/3 md:w-2/5 px-4 py-3 font-medium truncate">Sản phẩm</th>
+                <th className="px-4 py-3 font-medium truncate max-sm:hidden">Loại</th>
                 <th className="px-4 py-3 font-medium truncate">
-                  Price
+                  Giá
                 </th>
                 <th className="px-4 py-3 font-medium truncate max-sm:hidden">Action</th>
               </tr>

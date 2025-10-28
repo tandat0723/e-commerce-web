@@ -27,10 +27,10 @@ const Navbar = () => {
           Shop
         </Link>
         <Link href="/" className="hover:text-gray-900 transition">
-          About Us
+          Chúng tôi
         </Link>
         <Link href="/" className="hover:text-gray-900 transition">
-          Contact
+          Liên hệ
         </Link>
 
         {isSeller && <button onClick={() => router.push('/seller')} className="text-xs border px-4 py-1.5 rounded-full">Seller Dashboard</button>}
@@ -53,7 +53,7 @@ const Navbar = () => {
             </> :
             <button onClick={openSignIn} className="flex items-center gap-2 hover:text-gray-900 transition">
               <Image src={assets.user_icon} alt="user icon" />
-              Account
+              Tài khoản
             </button>
         }
       </ul>
