@@ -132,7 +132,7 @@ const AddProduct = () => {
           </div>
           <div className="flex flex-col gap-1 w-32">
             <label className="text-base font-medium" htmlFor="product-price">
-              Giá bán
+              Giá đề xuất
             </label>
             <input
               id="product-price"
@@ -146,7 +146,7 @@ const AddProduct = () => {
           </div>
           <div className="flex flex-col gap-1 w-32">
             <label className="text-base font-medium" htmlFor="offer-price">
-              Giá gốc
+              Giá bán
             </label>
             <input
               id="offer-price"
