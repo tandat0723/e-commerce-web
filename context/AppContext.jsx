@@ -1,5 +1,4 @@
 'use client'
-import { productsDummyData, userDummyData } from "@/assets/assets";
 import { useAuth, useUser } from "@clerk/nextjs";
 import axios from "axios";
 import { useRouter } from "next/navigation";
@@ -15,7 +14,6 @@ export const useAppContext = () => {
 export const AppContextProvider = (props) => {
     const currency = process.env.NEXT_PUBLIC_CURRENCY
     const router = useRouter()
-
     const { user } = useUser()
     const { getToken } = useAuth()
 
@@ -75,7 +73,7 @@ export const AppContextProvider = (props) => {
                 await axios.post('/api/cart/update', { cartData }, {
                     headers: { Authorization: `Bearer ${token}` }
                 })
-                toast.success('Item add to cart')
+                toast.success('Thêm vào giỏ hàng')
             } catch (error) {
                 toast.error(error.message)
             }
@@ -97,7 +95,7 @@ export const AppContextProvider = (props) => {
                 await axios.post('/api/cart/update', { cartData }, {
                     headers: { Authorization: `Bearer ${token}` }
                 })
-                toast.success('Cart updated')
+                toast.success('Cập nhật giỏ hàng')
             } catch (error) {
                 toast.error(error.message)
             }

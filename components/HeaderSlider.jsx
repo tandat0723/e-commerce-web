@@ -6,26 +6,26 @@ const HeaderSlider = () => {
   const sliderData = [
     {
       id: 1,
-      title: "Experience Pure Sound - Your Perfect Headphones Awaits!",
-      offer: "Limited Time Offer 30% Off",
-      buttonText1: "Buy now",
-      buttonText2: "Find more",
+      title: "Trải nghiệm âm thanh lên tầm cao mới!",
+      offer: "Ưu đãi giảm 30%",
+      buttonText1: "Mua ngay",
+      buttonText2: "Tìm thêm",
       imgSrc: assets.header_headphone_image,
     },
     {
       id: 2,
-      title: "Next-Level Gaming Starts Here - Discover PlayStation 5 Today!",
-      offer: "Hurry up only few lefts!",
-      buttonText1: "Shop Now",
-      buttonText2: "Explore Deals",
+      title: "Trải nghiệm gaming đẳng cấp - Khám phá PlayStation 5 ngay hôm nay!",
+      offer: "Nhanh tay, chỉ còn vài chiếc thôi!",
+      buttonText1: "Mua ngay",
+      buttonText2: "Khám phá Ưu đãi",
       imgSrc: assets.header_playstation_image,
     },
     {
       id: 3,
-      title: "Power Meets Elegance - Apple MacBook Pro is Here for you!",
-      offer: "Exclusive Deal 40% Off",
-      buttonText1: "Order Now",
-      buttonText2: "Learn More",
+      title: "Sức mạnh kết hợp với sự thanh lịch - Apple MacBook Pro!",
+      offer: "Ưu đãi độc quyền giảm 40%",
+      buttonText1: "Đặt hàng ngay",
+      buttonText2: "Tìm hiểu thêm",
       imgSrc: assets.header_macbook_image,
     },
   ];
@@ -87,9 +87,8 @@ const HeaderSlider = () => {
           <div
             key={index}
             onClick={() => handleSlideChange(index)}
-            className={`h-2 w-2 rounded-full cursor-pointer ${
-              currentSlide === index ? "bg-orange-600" : "bg-gray-500/30"
-            }`}
+            className={`h-2 w-2 rounded-full cursor-pointer ${currentSlide === index ? "bg-orange-600" : "bg-gray-500/30"
+              }`}
           ></div>
         ))}
       </div>
