@@ -1,6 +1,7 @@
 import connectDB from "@/config/db"
 import Order from "@/models/Order"
 import User from "@/models/User"
+import { NextResponse } from "next/server"
 import Stripe from "stripe"
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY)
@@ -29,14 +30,17 @@ export async function POST(request) {
                 await handlePaymentIntent(event.data.object.id, true)
                 break
             case 'payment_intent.canceled':
-                await handlePaymentIntent
+                await handlePaymentIntent(event.data.object.id, false)
                 break
-
             default:
+                console.error(event.type)
                 break
         }
-    } catch (error) {
 
+        return NextResponse.json({ received: true })
+    } catch (error) {
+        console.log(error)
+        return NextResponse.json({ message: error.message })
     }
 }
 
