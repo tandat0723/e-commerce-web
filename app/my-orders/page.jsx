@@ -10,10 +10,10 @@ import axios from "axios";
 import toast from "react-hot-toast";
 
 const MyOrders = () => {
-    const { currency, getToken, user } = useAppContext();
+    const { currency, getToken, user } = useAppContext()
 
-    const [orders, setOrders] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [orders, setOrders] = useState([])
+    const [loading, setLoading] = useState(true)
 
     const fetchOrders = async () => {
         try {

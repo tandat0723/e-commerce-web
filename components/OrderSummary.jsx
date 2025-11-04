@@ -168,7 +168,7 @@ const OrderSummary = () => {
       </div>
 
       <button onClick={createOrder} className="w-full bg-orange-600 text-white py-3 mt-5 hover:bg-orange-700">
-        Place Order
+        Đặt hàng
       </button>
     </div>
   );

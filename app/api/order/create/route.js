@@ -1,4 +1,4 @@
-import { inngest } from "@/config/inngest";
+import Order from "@/models/Order";
 import Product from "@/models/Product";
 import User from "@/models/User";
 import { getAuth } from "@clerk/nextjs/server";
@@ -18,15 +18,13 @@ export async function POST(request) {
             return await acc + product.offerPrice * item.quantity
         }, 0)
 
-        await inngest.send({
-            name: 'order/created',
-            data: {
-                userId,
-                address,
-                items,
-                amount: amount + Math.floor(amount * 0.02),
-                date: Date.now(),
-            }
+        await Order.create({
+            userId,
+            address,
+            items,
+            amount: amount + Math.floor(amount * 0.02),
+            date: Date.now(),
+            paymentType: 'COD',
         })
 
         //clear cart
