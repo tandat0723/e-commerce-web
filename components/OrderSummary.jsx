@@ -38,6 +38,21 @@ const OrderSummary = () => {
 
   const createOrder = async () => {
     try {
+      if (data.success) {
+        toast.success(data.message)
+        setCartItems({})
+        router.push('/order-placed')
+      } else {
+        toast.error(data.message)
+      }
+
+    } catch (error) {
+      toast.error(error.message)
+    }
+  }
+
+  const createOrderStripe = async () => {
+    try {
       if (!selectedAddress) {
         return toast.error('Hãy thêm địa chỉ nhận hàng')
       }
@@ -45,15 +60,14 @@ const OrderSummary = () => {
       let cartItemArray = Object.keys(cartItems).map((key) => ({
         product: key, quantity: cartItems[key]
       }))
-      cartItemArray = cartItemArray.filter(item => item.quantity > 0)
 
+      cartItemArray = cartItemArray.filter(item => item.quantity > 0)
       if (cartItemArray.length === 0) {
         return toast.error('Giỏ hàng trống')
       }
 
       const token = await getToken()
-
-      const { data } = await axios.post('/api/order/create', {
+      const { data } = await axios.post('/api/order/stripe', {
         address: selectedAddress._id,
         items: cartItemArray
       }, {
@@ -61,9 +75,7 @@ const OrderSummary = () => {
       })
 
       if (data.success) {
-        toast.success(data.message)
-        setCartItems({})
-        router.push('/order-placed')
+        window.location.href = data.url
       } else {
         toast.error(data.message)
       }
@@ -167,7 +179,7 @@ const OrderSummary = () => {
         </div>
       </div>
 
-      <button onClick={createOrder} className="w-full bg-orange-600 text-white py-3 mt-5 hover:bg-orange-700">
+      <button onClick={createOrderStripe} className="w-full bg-orange-600 text-white py-3 mt-5 hover:bg-orange-700">
         Đặt hàng
       </button>
     </div>

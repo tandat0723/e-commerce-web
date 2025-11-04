@@ -27,7 +27,6 @@ export async function POST(request) {
             paymentType: 'COD',
         })
 
-        //clear cart
         const user = await User.findById(userId)
         user.cartItems = {}
         await user.save()
