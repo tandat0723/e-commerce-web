@@ -36,9 +36,10 @@ export async function POST(request) {
             items,
             amount: amount + Math.floor(amount * 0.02),
             date: Date.now(),
-            paymentType: 'Stripe',
+            paymentType: 'Stripe'
         })
 
+        //create line items for stripe
         const line_items = productData.map(item => {
             return {
                 price_data: {
@@ -52,6 +53,7 @@ export async function POST(request) {
             }
         })
 
+        //create session
         const session = await stripe.checkout.sessions.create({
             line_items,
             mode: 'payment',

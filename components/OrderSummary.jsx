@@ -60,8 +60,8 @@ const OrderSummary = () => {
       let cartItemArray = Object.keys(cartItems).map((key) => ({
         product: key, quantity: cartItems[key]
       }))
-
       cartItemArray = cartItemArray.filter(item => item.quantity > 0)
+
       if (cartItemArray.length === 0) {
         return toast.error('Giỏ hàng trống')
       }

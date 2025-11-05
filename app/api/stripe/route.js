@@ -18,6 +18,7 @@ export async function POST(request) {
             })
             const { orderId, userId } = session.data[0].metadata
             await connectDB()
+
             if (isPaid) {
                 await Order.findByIdAndUpdate(orderId, { isPaid: true })
                 await User.findByIdAndUpdate(userId, { cartItems: {} })
@@ -26,15 +27,17 @@ export async function POST(request) {
             }
         }
         switch (event.type) {
-            case 'payment_intent.succeeded':
+            case 'payment_intent.succeeded': {
                 await handlePaymentIntent(event.data.object.id, true)
-                break
-            case 'payment_intent.canceled':
+                break;
+            }
+            case 'payment_intent.canceled': {
                 await handlePaymentIntent(event.data.object.id, false)
-                break
+                break;
+            }
             default:
                 console.error(event.type)
-                break
+                break;
         }
 
         return NextResponse.json({ received: true })
